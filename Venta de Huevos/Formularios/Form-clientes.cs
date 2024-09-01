@@ -33,5 +33,10 @@ namespace Venta_de_Huevos.Formularios
             ConexionBD Conecxion = new ConexionBD();
             Conecxion.cerrar();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("sssssssssssssssssssssssssssssssssssssss");
+        }
     }
 }
