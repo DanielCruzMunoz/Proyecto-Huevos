@@ -46,7 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConexionBD.cs" />
+    <Compile Include="Clases\ConexionBD.cs" />
+    <Compile Include="Clases\ConexionBDAle.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
