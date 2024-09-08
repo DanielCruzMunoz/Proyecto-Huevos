@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Venta_de_Huevos.Formularios
 {
-    public partial class Form_clientes : Form
+    public partial class Form_Compra : Form
     {
-        public Form_clientes()
+        public Form_Compra()
         {
             InitializeComponent();
         }

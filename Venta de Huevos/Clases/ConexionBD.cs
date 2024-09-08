@@ -11,7 +11,7 @@ namespace Venta_de_Huevos
     internal class ConexionBD
     {
         //---------------------------Cadena de conenxion PC Daniel------------------------------------>
-        string cadena = "server= DANNYPC\\SQLEXPRESS; database= EmpresaHuevos; integrated security= true";
+        string cadena = "server= DANNYPC\\SQLEXPRESS; database= Huevos; integrated security= true";
         public SqlConnection conectarBD = new SqlConnection();
         public ConexionBD()
         {

@@ -60,6 +60,30 @@
     <Compile Include="Formularios\Form-clientes.Designer.cs">
       <DependentUpon>Form-clientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Form-Compra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Form-Compra.Designer.cs">
+      <DependentUpon>Form-Compra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Form-Inventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Form-Inventario.Designer.cs">
+      <DependentUpon>Form-Inventario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Form-Proveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Form-Proveedor.Designer.cs">
+      <DependentUpon>Form-Proveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Form-Ventas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Form-Ventas.Designer.cs">
+      <DependentUpon>Form-Ventas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -67,6 +91,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Form-clientes.resx">
       <DependentUpon>Form-clientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Form-Compra.resx">
+      <DependentUpon>Form-Compra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Form-Inventario.resx">
+      <DependentUpon>Form-Inventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Form-Proveedor.resx">
+      <DependentUpon>Form-Proveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Form-Ventas.resx">
+      <DependentUpon>Form-Ventas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
