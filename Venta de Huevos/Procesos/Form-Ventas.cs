@@ -84,7 +84,6 @@ namespace Venta_de_Huevos.Formularios
             txtCantidadProducto.Clear();
             txtPrecioVentaProducto.Clear();
             txtPrecioUnitarioProducto.Clear();
-            txtEstadoVenta.Clear();
             txtMontoPagado.Clear();
             txtGanancia.Clear();
             txtPrecioCartonProducto.Clear();
@@ -227,7 +226,6 @@ namespace Venta_de_Huevos.Formularios
                 txtCantidadProducto.Clear();
                 txtPrecioVentaProducto.Clear();
                 txtPrecioUnitarioProducto.Clear();
-                txtEstadoVenta.Clear();
                 txtMontoPagado.Clear();
                 txtGanancia.Clear();
                 txtPrecioCartonProducto.Clear();
@@ -291,7 +289,6 @@ namespace Venta_de_Huevos.Formularios
             txtCantidadProducto.Clear();
             txtPrecioVentaProducto.Clear();
             txtPrecioUnitarioProducto.Clear();
-            txtEstadoVenta.Clear();
             txtMontoPagado.Clear();
             txtTipoCliente.Clear();
             txtGanancia.Clear();
@@ -470,6 +467,11 @@ namespace Venta_de_Huevos.Formularios
 
             // Mostrar el monto total en el label con formato de moneda (opcional)
             lbMontoTotal.Text = Convert.ToString(montoTotal); // "C2" para formato de moneda con dos decimales
+        }
+
+        private void txtPrecioCartonProducto_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
