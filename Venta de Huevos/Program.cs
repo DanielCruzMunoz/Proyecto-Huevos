@@ -17,7 +17,7 @@ namespace Venta_de_Huevos
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form_clientes());
+            Application.Run(new Index());
         }
     }
 }

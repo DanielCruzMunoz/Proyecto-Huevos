@@ -84,6 +84,18 @@
     <Compile Include="Formularios\Form-Ventas.Designer.cs">
       <DependentUpon>Form-Ventas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Index.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Index.Designer.cs">
+      <DependentUpon>Index.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\inicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\inicio.Designer.cs">
+      <DependentUpon>inicio.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -103,6 +115,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Form-Ventas.resx">
       <DependentUpon>Form-Ventas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Index.resx">
+      <DependentUpon>Index.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\inicio.resx">
+      <DependentUpon>inicio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -127,7 +145,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="NewFolder1\" />
+    <Folder Include="Consultas\" />
+    <Folder Include="Informes\" />
     <Folder Include="Procesos\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
