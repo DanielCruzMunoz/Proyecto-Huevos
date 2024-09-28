@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtPrecioVenta = new System.Windows.Forms.TextBox();
+            this.txtPrecioCarton = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtTipo = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -43,18 +43,20 @@
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
+            this.txtCostoUnidad = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgInventario)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtPrecioVenta
+            // txtPrecioCarton
             // 
-            this.txtPrecioVenta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtPrecioCarton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtPrecioVenta.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrecioVenta.Location = new System.Drawing.Point(20, 358);
-            this.txtPrecioVenta.Name = "txtPrecioVenta";
-            this.txtPrecioVenta.Size = new System.Drawing.Size(212, 44);
-            this.txtPrecioVenta.TabIndex = 22;
+            this.txtPrecioCarton.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecioCarton.Location = new System.Drawing.Point(20, 358);
+            this.txtPrecioCarton.Name = "txtPrecioCarton";
+            this.txtPrecioCarton.Size = new System.Drawing.Size(212, 44);
+            this.txtPrecioCarton.TabIndex = 22;
             // 
             // label6
             // 
@@ -64,9 +66,9 @@
             this.label6.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(14, 309);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(249, 36);
+            this.label6.Size = new System.Drawing.Size(238, 36);
             this.label6.TabIndex = 21;
-            this.label6.Text = "Precio de la venta ";
+            this.label6.Text = "Precio del Carton";
             // 
             // txtTipo
             // 
@@ -164,12 +166,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtgInventario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgInventario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgInventario.Location = new System.Drawing.Point(482, 12);
+            this.dtgInventario.Location = new System.Drawing.Point(496, 9);
             this.dtgInventario.Name = "dtgInventario";
             this.dtgInventario.ReadOnly = true;
             this.dtgInventario.RowHeadersWidth = 62;
             this.dtgInventario.RowTemplate.Height = 28;
-            this.dtgInventario.Size = new System.Drawing.Size(837, 711);
+            this.dtgInventario.Size = new System.Drawing.Size(745, 632);
             this.dtgInventario.TabIndex = 29;
             this.dtgInventario.SelectionChanged += new System.EventHandler(this.dtgInventario_SelectionChanged);
             // 
@@ -177,7 +179,7 @@
             // 
             this.btnNuevo.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.btnNuevo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(47)))), ((int)(((byte)(91)))));
-            this.btnNuevo.Location = new System.Drawing.Point(19, 570);
+            this.btnNuevo.Location = new System.Drawing.Point(19, 730);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(170, 63);
             this.btnNuevo.TabIndex = 33;
@@ -189,7 +191,7 @@
             // 
             this.btnActualizar.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.btnActualizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(47)))), ((int)(((byte)(91)))));
-            this.btnActualizar.Location = new System.Drawing.Point(19, 639);
+            this.btnActualizar.Location = new System.Drawing.Point(19, 799);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(170, 61);
             this.btnActualizar.TabIndex = 32;
@@ -201,7 +203,7 @@
             // 
             this.btnEliminar.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.btnEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(47)))), ((int)(((byte)(91)))));
-            this.btnEliminar.Location = new System.Drawing.Point(223, 639);
+            this.btnEliminar.Location = new System.Drawing.Point(223, 799);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(170, 61);
             this.btnEliminar.TabIndex = 31;
@@ -213,7 +215,7 @@
             // 
             this.btnAgregar.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.btnAgregar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(47)))), ((int)(((byte)(91)))));
-            this.btnAgregar.Location = new System.Drawing.Point(223, 570);
+            this.btnAgregar.Location = new System.Drawing.Point(223, 730);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(170, 63);
             this.btnAgregar.TabIndex = 30;
@@ -221,13 +223,37 @@
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
+            // txtCostoUnidad
+            // 
+            this.txtCostoUnidad.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtCostoUnidad.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCostoUnidad.Location = new System.Drawing.Point(20, 597);
+            this.txtCostoUnidad.Name = "txtCostoUnidad";
+            this.txtCostoUnidad.Size = new System.Drawing.Size(212, 44);
+            this.txtCostoUnidad.TabIndex = 35;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(14, 547);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(226, 36);
+            this.label3.TabIndex = 34;
+            this.label3.Text = "Costo de Unidad";
+            // 
             // Form_Inventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(1331, 735);
+            this.ClientSize = new System.Drawing.Size(1668, 1054);
+            this.Controls.Add(this.txtCostoUnidad);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnEliminar);
@@ -235,7 +261,7 @@
             this.Controls.Add(this.dtgInventario);
             this.Controls.Add(this.txtExistenciaHuevos);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.txtPrecioVenta);
+            this.Controls.Add(this.txtPrecioCarton);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtTipo);
             this.Controls.Add(this.label5);
@@ -255,7 +281,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtPrecioVenta;
+        private System.Windows.Forms.TextBox txtPrecioCarton;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtTipo;
         private System.Windows.Forms.Label label5;
@@ -270,5 +296,7 @@
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.TextBox txtCostoUnidad;
+        private System.Windows.Forms.Label label3;
     }
 }

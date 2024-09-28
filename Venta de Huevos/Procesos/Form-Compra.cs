@@ -119,5 +119,10 @@ namespace Venta_de_Huevos.Formularios
             cmd4.ExecuteNonQuery();
             dtgCompra.DataSource = llenar_grid();
         }
+
+        private void dtgCompra_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

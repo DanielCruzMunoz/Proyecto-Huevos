@@ -40,6 +40,8 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cobTipoCliente = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgClientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,7 +69,7 @@
             this.dtgClientes.ReadOnly = true;
             this.dtgClientes.RowHeadersWidth = 62;
             this.dtgClientes.RowTemplate.Height = 28;
-            this.dtgClientes.Size = new System.Drawing.Size(932, 651);
+            this.dtgClientes.Size = new System.Drawing.Size(647, 507);
             this.dtgClientes.TabIndex = 5;
             this.dtgClientes.SelectionChanged += new System.EventHandler(this.dtgClientes_SelectionChanged);
             // 
@@ -76,7 +78,7 @@
             this.txtNombre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.txtNombre.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(12, 139);
+            this.txtNombre.Location = new System.Drawing.Point(12, 156);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(212, 44);
             this.txtNombre.TabIndex = 12;
@@ -87,7 +89,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(6, 102);
+            this.label5.Location = new System.Drawing.Point(6, 119);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(118, 36);
             this.label5.TabIndex = 11;
@@ -98,7 +100,7 @@
             this.txtApellido.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.txtApellido.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtApellido.Location = new System.Drawing.Point(12, 246);
+            this.txtApellido.Location = new System.Drawing.Point(12, 263);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(212, 44);
             this.txtApellido.TabIndex = 14;
@@ -109,7 +111,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(6, 197);
+            this.label6.Location = new System.Drawing.Point(6, 214);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(126, 36);
             this.label6.TabIndex = 13;
@@ -119,7 +121,7 @@
             // 
             this.btnNuevo.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.btnNuevo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(47)))), ((int)(((byte)(91)))));
-            this.btnNuevo.Location = new System.Drawing.Point(12, 440);
+            this.btnNuevo.Location = new System.Drawing.Point(12, 492);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(170, 63);
             this.btnNuevo.TabIndex = 21;
@@ -131,7 +133,7 @@
             // 
             this.btnActualizar.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.btnActualizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(47)))), ((int)(((byte)(91)))));
-            this.btnActualizar.Location = new System.Drawing.Point(12, 509);
+            this.btnActualizar.Location = new System.Drawing.Point(12, 561);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(170, 61);
             this.btnActualizar.TabIndex = 20;
@@ -143,7 +145,7 @@
             // 
             this.btnEliminar.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.btnEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(47)))), ((int)(((byte)(91)))));
-            this.btnEliminar.Location = new System.Drawing.Point(216, 509);
+            this.btnEliminar.Location = new System.Drawing.Point(216, 561);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(170, 61);
             this.btnEliminar.TabIndex = 19;
@@ -155,7 +157,7 @@
             // 
             this.btnAgregar.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.btnAgregar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(47)))), ((int)(((byte)(91)))));
-            this.btnAgregar.Location = new System.Drawing.Point(216, 440);
+            this.btnAgregar.Location = new System.Drawing.Point(216, 492);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(170, 63);
             this.btnAgregar.TabIndex = 18;
@@ -168,7 +170,7 @@
             this.txtCodigo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.txtCodigo.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigo.Location = new System.Drawing.Point(12, 355);
+            this.txtCodigo.Location = new System.Drawing.Point(1009, 605);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(212, 44);
             this.txtCodigo.TabIndex = 22;
@@ -180,18 +182,44 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(14, 305);
+            this.label2.Location = new System.Drawing.Point(1011, 555);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(108, 36);
             this.label2.TabIndex = 23;
             this.label2.Text = "Codigo";
+            this.label2.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(6, 343);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(211, 36);
+            this.label3.TabIndex = 25;
+            this.label3.Text = "Tipo de Cliente";
+            // 
+            // cobTipoCliente
+            // 
+            this.cobTipoCliente.FormattingEnabled = true;
+            this.cobTipoCliente.Items.AddRange(new object[] {
+            "General",
+            "Five Star"});
+            this.cobTipoCliente.Location = new System.Drawing.Point(12, 382);
+            this.cobTipoCliente.Name = "cobTipoCliente";
+            this.cobTipoCliente.Size = new System.Drawing.Size(212, 28);
+            this.cobTipoCliente.TabIndex = 26;
             // 
             // Form_clientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(1387, 672);
+            this.ClientSize = new System.Drawing.Size(1233, 672);
+            this.Controls.Add(this.cobTipoCliente);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.btnNuevo);
@@ -228,5 +256,7 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cobTipoCliente;
     }
 }

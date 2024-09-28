@@ -168,12 +168,13 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtgCompra.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgCompra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgCompra.Location = new System.Drawing.Point(431, 12);
+            this.dtgCompra.Location = new System.Drawing.Point(448, 12);
             this.dtgCompra.Name = "dtgCompra";
             this.dtgCompra.RowHeadersWidth = 62;
             this.dtgCompra.RowTemplate.Height = 28;
-            this.dtgCompra.Size = new System.Drawing.Size(1236, 913);
+            this.dtgCompra.Size = new System.Drawing.Size(704, 626);
             this.dtgCompra.TabIndex = 25;
+            this.dtgCompra.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgCompra_CellContentClick);
             this.dtgCompra.SelectionChanged += new System.EventHandler(this.dtgCompra_SelectionChanged);
             // 
             // btnNuevo

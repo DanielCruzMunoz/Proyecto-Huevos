@@ -50,7 +50,7 @@ namespace Venta_de_Huevos.Formularios
             txtCodigo.Clear();
             txtExistenciaHuevos.Clear();
             txtTipo.Clear();
-            txtPrecioVenta.Clear();
+            txtPrecioCarton.Clear();
         }
 
 
@@ -60,11 +60,12 @@ namespace Venta_de_Huevos.Formularios
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             ConexionBDAle.Conectar();
-            string Insertar = "INSERT INTO Inventario ( Detalle, PrecioVenta, ExistenciaHuevos)VALUES( @Detalle, @PrecioVenta, @ExistenciaHuevos)";
+            string Insertar = "INSERT INTO Inventario ( Detalle, PrecioCarton, CostoUnidad,  ExistenciaHuevos)VALUES( @Detalle, @PrecioCarton, @CostoUnidad, @ExistenciaHuevos)";
             SqlCommand cmd2 = new SqlCommand(Insertar, ConexionBDAle.Conectar());
             cmd2.Parameters.AddWithValue("@Detalle", txtTipo.Text);
-            cmd2.Parameters.AddWithValue("@PrecioVenta", txtPrecioVenta.Text);
+            cmd2.Parameters.AddWithValue("@PrecioCarton", txtPrecioCarton.Text);
             cmd2.Parameters.AddWithValue("@ExistenciaHuevos", txtExistenciaHuevos.Text);
+            cmd2.Parameters.AddWithValue("@CostoUnidad", txtCostoUnidad.Text);
 
 
             cmd2.ExecuteNonQuery();
@@ -72,7 +73,8 @@ namespace Venta_de_Huevos.Formularios
             txtCodigo.Clear();
             txtExistenciaHuevos.Clear();
             txtTipo.Clear();
-            txtPrecioVenta.Clear();
+            txtPrecioCarton.Clear();
+            txtCostoUnidad.Clear();
         }
 
 
@@ -82,19 +84,21 @@ namespace Venta_de_Huevos.Formularios
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             ConexionBDAle.Conectar();
-            string actualizar = "UPDATE Inventario SET  Detalle=@Detalle, PrecioVenta=@PrecioVenta, ExistenciaHuevos=@ExistenciaHuevos WHERE ProductoID=@ProductoID";
+            string actualizar = "UPDATE Inventario SET  Detalle=@Detalle, PrecioCarton=@PrecioCarton, CostoUnidad=@CostoUnidad,  ExistenciaHuevos=@ExistenciaHuevos WHERE ProductoID=@ProductoID";
             SqlCommand cmd3 = new SqlCommand(actualizar, ConexionBDAle.Conectar());
             cmd3.Parameters.AddWithValue("@ProductoID", txtCodigo.Text);
             cmd3.Parameters.AddWithValue("@Detalle", txtTipo.Text);
-            cmd3.Parameters.AddWithValue("@PrecioVenta", txtPrecioVenta.Text);
+            cmd3.Parameters.AddWithValue("@PrecioCarton", txtPrecioCarton.Text);
             cmd3.Parameters.AddWithValue("@ExistenciaHuevos", txtExistenciaHuevos.Text);
+            cmd3.Parameters.AddWithValue("@CostoUnidad", txtCostoUnidad.Text);
 
             cmd3.ExecuteNonQuery();
             dtgInventario.DataSource = llenar_grid();
             txtCodigo.Clear();
             txtExistenciaHuevos.Clear();
             txtTipo.Clear();
-            txtPrecioVenta.Clear();
+            txtPrecioCarton.Clear();
+            txtCostoUnidad.Clear();
         }
 
 
@@ -125,8 +129,9 @@ namespace Venta_de_Huevos.Formularios
 
                     txtCodigo.Text = dtgInventario.Rows[selectedRowIndex].Cells[0].Value.ToString();
                     txtTipo.Text = dtgInventario.Rows[selectedRowIndex].Cells[1].Value.ToString();
-                    txtPrecioVenta.Text = dtgInventario.Rows[selectedRowIndex].Cells[2].Value.ToString();
-                    txtExistenciaHuevos.Text = dtgInventario.Rows[selectedRowIndex].Cells[3].Value.ToString();
+                    txtPrecioCarton.Text = dtgInventario.Rows[selectedRowIndex].Cells[2].Value.ToString();
+                    txtCostoUnidad.Text = dtgInventario.Rows[selectedRowIndex].Cells[3].Value.ToString();
+                    txtExistenciaHuevos.Text = dtgInventario.Rows[selectedRowIndex].Cells[4].Value.ToString();
                 }
             }
             catch (Exception ex)

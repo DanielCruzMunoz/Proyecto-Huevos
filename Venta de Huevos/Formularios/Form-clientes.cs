@@ -59,7 +59,8 @@ namespace Venta_de_Huevos.Formularios
                     txtCodigo.Text = dtgClientes.Rows[selectedRowIndex].Cells[0].Value.ToString();
                     txtNombre.Text = dtgClientes.Rows[selectedRowIndex].Cells[1].Value.ToString();
                     txtApellido.Text = dtgClientes.Rows[selectedRowIndex].Cells[2].Value.ToString();
-                 
+                    cobTipoCliente.Text = dtgClientes.Rows[selectedRowIndex].Cells[3].Value.ToString();
+
 
                 }
             }
@@ -78,6 +79,7 @@ namespace Venta_de_Huevos.Formularios
             txtCodigo.Clear();
             txtNombre.Clear();
             txtApellido.Clear();
+           
         }
 
 
@@ -85,12 +87,13 @@ namespace Venta_de_Huevos.Formularios
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             ConexionBDAle.Conectar();
-            string Insertar = "INSERT INTO Clientes ( Nombre, Apellido)VALUES( @Nombre, @Apellido)";
+            string Insertar = "INSERT INTO Clientes ( Nombre, Apellido, Tipo)VALUES( @Nombre, @Apellido, @Tipo)";
             SqlCommand cmd2 = new SqlCommand(Insertar, ConexionBDAle.Conectar());
             cmd2.Parameters.AddWithValue("@Nombre", txtNombre.Text);
             cmd2.Parameters.AddWithValue("@Apellido", txtApellido.Text);
+            cmd2.Parameters.AddWithValue("@Tipo", cobTipoCliente.Text);
 
-          
+
             cmd2.ExecuteNonQuery();
             dtgClientes.DataSource = llenar_grid();
             txtCodigo.Clear();
@@ -102,17 +105,19 @@ namespace Venta_de_Huevos.Formularios
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             ConexionBDAle.Conectar();
-            string actualizar = "UPDATE Clientes SET   Nombre=@Nombre, Apellido=@Apellido WHERE ClienteID=@ClienteID";
+            string actualizar = "UPDATE Clientes SET   Nombre=@Nombre, Apellido=@Apellido, Tipo=@Tipo WHERE ClienteID=@ClienteID";
             SqlCommand cmd3 = new SqlCommand(actualizar, ConexionBDAle.Conectar());
             cmd3.Parameters.AddWithValue("@ClienteID", txtCodigo.Text);
             cmd3.Parameters.AddWithValue("@Nombre", txtNombre.Text);
             cmd3.Parameters.AddWithValue("@Apellido", txtApellido.Text);
+            cmd3.Parameters.AddWithValue("@Tipo", cobTipoCliente.Text);
 
             cmd3.ExecuteNonQuery();
             dtgClientes.DataSource = llenar_grid();
             txtCodigo.Clear();
             txtNombre.Clear();
             txtApellido.Clear();
+           
         }
 
         //--------------------------------------------------------------------Metodo para Utilizar el Boton Eliminar.

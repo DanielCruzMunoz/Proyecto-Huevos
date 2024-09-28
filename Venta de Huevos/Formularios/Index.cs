@@ -59,7 +59,27 @@ namespace Venta_de_Huevos.Formularios
 
         private void comprasToolStripMenuItem_Click(object sender, EventArgs e)
         {
+           
+        }
+
+        private void proveedorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            abrirformularioHijo(new Form_Proveedor());
+        }
+
+        private void ventasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void compraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             abrirformularioHijo(new Form_Compra());
+        }
+
+        private void ventasToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            abrirformularioHijo(new Form_Ventas());
         }
     }
 }
