@@ -69,7 +69,7 @@ namespace Venta_de_Huevos.Formularios
             }
             catch
             {
-                // Manejar la excepción apropiadamente, por ejemplo, mostrar un mensaje de error.
+                MessageBox.Show("Algo salio mal al selecionar los datos en el datagrew.");
             }
         }
 
@@ -91,48 +91,8 @@ namespace Venta_de_Huevos.Formularios
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            /*decimal precio = decimal.Parse(txtPrecioVentaProducto.Text);
-            decimal precioCompra = decimal.Parse(txtPrecioUnitarioProducto.Text);
-            int cantidad = int.Parse(txtCantidadProducto.Text);
-            decimal Ganancia = precio - precioCompra * cantidad  ;
-
-
-
-
-            ConexionBDAle.Conectar();
-            string Insertar = "INSERT INTO Ventas ( ClienteID, NombreCliente, Fecha, ProductoID, Detalle, Cantidad, PrecioVenta, PrecioUnitario, EstadoVenta, MontoPagado, MontoTotal, Ganancia)VALUES( @ClienteID, @NombreCliente, @Fecha, @ProductoID, @Detalle, @Cantidad, @PrecioVenta, @PrecioUnitario, @EstadoVenta, @MontoPagado, @MontoTotal, @Ganancia)";
-            SqlCommand cmd2 = new SqlCommand(Insertar, ConexionBDAle.Conectar());
-            cmd2.Parameters.AddWithValue("@ClienteID", txtCodigoCliente.Text);
-            cmd2.Parameters.AddWithValue("@NombreCliente", txtNombreCliente.Text);
-            cmd2.Parameters.AddWithValue("@Fecha", txtFecha.Text);
-            cmd2.Parameters.AddWithValue("@ProductoID", txtCodigoProducto.Text);
-            cmd2.Parameters.AddWithValue("@Detalle", txtDetalleProducto.Text);
-            cmd2.Parameters.AddWithValue("@Cantidad", txtCantidadProducto.Text);
-            cmd2.Parameters.AddWithValue("@PrecioVenta", decimal.Parse(txtPrecioVentaProducto.Text));
-            cmd2.Parameters.AddWithValue("@PrecioUnitario", decimal.Parse(txtPrecioUnitarioProducto.Text));
-            cmd2.Parameters.AddWithValue("@EstadoVenta", txtEstadoVenta.Text);
-            cmd2.Parameters.AddWithValue("@MontoPagado", decimal.Parse(txtMontoPagado.Text));
-            cmd2.Parameters.AddWithValue("@MontoTotal", lbMontoTotal.Text);
-            cmd2.Parameters.AddWithValue("@Ganancia", Ganancia);
-
-
-            cmd2.ExecuteNonQuery();
-            dtgVentas.DataSource = llenar_grid();
-            txtCodigo.Clear();
-            txtCodigoCliente.Clear();
-            txtNombreCliente.Clear();
-            txtFecha.Clear();
-            txtCodigoProducto.Clear();
-            txtDetalleProducto.Clear();
-            txtCantidadProducto.Clear();
-            txtPrecioVentaProducto.Clear();
-            txtPrecioUnitarioProducto.Clear();
-            txtEstadoVenta.Clear();
-            txtMontoPagado.Clear();
-       
-            txtGanancia.Clear();*/
-
-            // Declaración de variables
+          
+         
             decimal precioCarton;
             decimal precioVenta;
             decimal precioUnitario;
@@ -164,7 +124,7 @@ namespace Venta_de_Huevos.Formularios
             }
 
             // Cálculo de la ganancia
-            ganancia = (precioCarton - precioVenta) * cantidad;
+            ganancia = ( precioVenta - precioCarton) * cantidad;
 
             // Conectar a la base de datos
             SqlConnection conexion = ConexionBDAle.Conectar();
@@ -187,35 +147,31 @@ namespace Venta_de_Huevos.Formularios
                     return;
                 }
 
-                // Preparar la consulta SQL para la inserción
+                
                 string insertar = "INSERT INTO Ventas (ClienteID, NombreCliente, TipoCliente, Fecha, ProductoID, Detalle, Cantidad, PrecioCarton, PrecioVenta, PrecioUnitario, EstadoVenta, MontoPagado, MontoTotal, Ganancia) " +
                                   "VALUES (@ClienteID, @NombreCliente, @TipoCliente,  @Fecha, @ProductoID, @Detalle, @Cantidad, @PrecioCarton, @PrecioVenta, @PrecioUnitario, @EstadoVenta, @MontoPagado, @MontoTotal, @Ganancia)";
 
                 SqlCommand cmd2 = new SqlCommand(insertar, conexion);
 
-                // Agregar parámetros a la consulta SQL
+               
                 cmd2.Parameters.AddWithValue("@ClienteID", txtCodigoCliente.Text);
                 cmd2.Parameters.AddWithValue("@NombreCliente", txtNombreCliente.Text);
                 cmd2.Parameters.AddWithValue("@TipoCliente", txtTipoCliente.Text);
-                cmd2.Parameters.AddWithValue("@Fecha", DateTime.Parse(txtFecha.Text));  // Convertir la fecha correctamente
+                cmd2.Parameters.AddWithValue("@Fecha", DateTime.Parse(txtFecha.Text));  
                 cmd2.Parameters.AddWithValue("@ProductoID", txtCodigoProducto.Text);
                 cmd2.Parameters.AddWithValue("@Detalle", txtDetalleProducto.Text);
-                cmd2.Parameters.AddWithValue("@Cantidad", cantidad);  // Ya convertido a entero
+                cmd2.Parameters.AddWithValue("@Cantidad", cantidad);  
                 cmd2.Parameters.AddWithValue("@PrecioCarton", precioCarton);
-                cmd2.Parameters.AddWithValue("@PrecioVenta", precioVenta);  // Ya convertido a decimal
-                cmd2.Parameters.AddWithValue("@PrecioUnitario", precioUnitario);  // Ya convertido a decimal
+                cmd2.Parameters.AddWithValue("@PrecioVenta", precioVenta);  
+                cmd2.Parameters.AddWithValue("@PrecioUnitario", precioUnitario);  
                 cmd2.Parameters.AddWithValue("@EstadoVenta", txtEstadoVenta.Text);
-                cmd2.Parameters.AddWithValue("@MontoPagado", montoPagado);  // Ya convertido a decimal
-                cmd2.Parameters.AddWithValue("@MontoTotal", montoTotal);  // Ya convertido a decimal
-                cmd2.Parameters.AddWithValue("@Ganancia", ganancia);  // Ya calculada
+                cmd2.Parameters.AddWithValue("@MontoPagado", montoPagado);  
+                cmd2.Parameters.AddWithValue("@MontoTotal", montoTotal);  
+                cmd2.Parameters.AddWithValue("@Ganancia", ganancia);  
 
-                // Ejecutar el comando SQL
+
                 cmd2.ExecuteNonQuery();
-
-                // Actualizar el DataGridView
                 dtgVentas.DataSource = llenar_grid();
-
-                // Limpiar los campos del formulario
                 txtCodigo.Clear();
                 txtCodigoCliente.Clear();
                 txtNombreCliente.Clear();
@@ -233,69 +189,135 @@ namespace Venta_de_Huevos.Formularios
             }
             catch (Exception ex)
             {
-                // Manejar errores de la base de datos
+               
                 MessageBox.Show("Ocurrió un error al guardar la venta: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
-                // Cerrar la conexión a la base de datos
+               
                 if (conexion != null && conexion.State == ConnectionState.Open)
                 {
                     conexion.Close();
                 }
             }
-
-
-
-
-
-
-
-
-
-
-
-
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            ConexionBDAle.Conectar();
-            string actualizar = "UPDATE Ventas SET  ClienteID=@ClienteID, NombreCliente=@NombreCliente, Fecha=@Fecha, ProductoID=@ProductoID, Detalle=@Detalle, Cantidad=@Cantidad, PrecioCarton=@PrecioCarton, PrecioVenta=@PrecioVenta, PrecioUnitario=@PrecioUnitario, EstadoVenta=@EstadoVenta, MontoPagado=@MontoPagado, MontoTotal=@MontoTotal, Ganancia=@Ganancia WHERE VentaID=@VentaID";
-            SqlCommand cmd3 = new SqlCommand(actualizar, ConexionBDAle.Conectar());
-            cmd3.Parameters.AddWithValue("@VentaID", txtCodigo.Text);
-            cmd3.Parameters.AddWithValue("@ClienteID", txtCodigoCliente.Text);
-            cmd3.Parameters.AddWithValue("@NombreCliente", txtNombreCliente.Text);
-            cmd3.Parameters.AddWithValue("@Fecha", txtFecha.Text);
-            cmd3.Parameters.AddWithValue("@ProductoID", txtCodigoProducto.Text);
-            cmd3.Parameters.AddWithValue("@Detalle", txtDetalleProducto.Text);
-            cmd3.Parameters.AddWithValue("@Cantidad", txtCantidadProducto.Text);
-            cmd3.Parameters.AddWithValue("@PrecioCarton", txtPrecioCartonProducto.Text);
-            cmd3.Parameters.AddWithValue("@PrecioVenta", txtPrecioVentaProducto.Text);
-            cmd3.Parameters.AddWithValue("@PrecioUnitario", txtPrecioUnitarioProducto.Text);
-            cmd3.Parameters.AddWithValue("@EstadoVenta", txtEstadoVenta.Text);
-            cmd3.Parameters.AddWithValue("@MontoPagado", txtMontoPagado.Text);
-            cmd3.Parameters.AddWithValue("@MontoTotal", lbMontoTotal.Text);
-            cmd3.Parameters.AddWithValue("@Ganancia", txtGanancia.Text);
+           
+            decimal precioCarton;
+            decimal precioVenta;
+            decimal precioUnitario;
+            int cantidad;
+            decimal ganancia;
 
-            cmd3.ExecuteNonQuery();
-            dtgVentas.DataSource = llenar_grid();
-            txtCodigo.Clear();
-            txtCodigoCliente.Clear();
-            txtNombreCliente.Clear();
-            txtFecha.Clear();
-            txtCodigoProducto.Clear();
-            txtDetalleProducto.Clear();
-            txtCantidadProducto.Clear();
-            txtPrecioVentaProducto.Clear();
-            txtPrecioUnitarioProducto.Clear();
-            txtMontoPagado.Clear();
-            txtTipoCliente.Clear();
-            txtGanancia.Clear();
-            txtPrecioCartonProducto.Clear();
+            // Conversión segura de los datos de entrada con TryParse
+            if (!decimal.TryParse(txtPrecioUnitarioProducto.Text, out precioUnitario))
+            {
+                MessageBox.Show("El precio unitario ingresado es inválido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (!decimal.TryParse(txtPrecioCartonProducto.Text, out precioCarton))
+            {
+                MessageBox.Show("El precio de carton ingresado es inválido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!decimal.TryParse(txtPrecioVentaProducto.Text, out precioVenta))
+            {
+                MessageBox.Show("El precio de venta ingresado es inválido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!int.TryParse(txtCantidadProducto.Text, out cantidad))
+            {
+                MessageBox.Show("La cantidad ingresada es inválida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Cálculo de la ganancia
+            ganancia = (precioVenta - precioCarton) * cantidad;
+
+            // Conectar a la base de datos
+            SqlConnection conexion = ConexionBDAle.Conectar();
+
+            try
+            {
+                // Conversión segura para MontoPagado
+                decimal montoPagado;
+                if (!decimal.TryParse(txtMontoPagado.Text, out montoPagado))
+                {
+                    MessageBox.Show("El monto pagado ingresado es inválido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Conversión segura para MontoTotal
+                decimal montoTotal;
+                if (!decimal.TryParse(lbMontoTotal.Text, out montoTotal))
+                {
+                    MessageBox.Show("El monto total ingresado es inválido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+
+                ConexionBDAle.Conectar();
+                string actualizar = "UPDATE Ventas SET  ClienteID=@ClienteID, NombreCliente=@NombreCliente, Fecha=@Fecha, ProductoID=@ProductoID, Detalle=@Detalle, Cantidad=@Cantidad, PrecioCarton=@PrecioCarton, PrecioVenta=@PrecioVenta, PrecioUnitario=@PrecioUnitario, EstadoVenta=@EstadoVenta, MontoPagado=@MontoPagado, MontoTotal=@MontoTotal, Ganancia=@Ganancia WHERE VentaID=@VentaID";
+                SqlCommand cmd3 = new SqlCommand(actualizar, ConexionBDAle.Conectar());
+                cmd3.Parameters.AddWithValue("@VentaID", txtCodigo.Text);
+                cmd3.Parameters.AddWithValue("@ClienteID", txtCodigoCliente.Text);
+                cmd3.Parameters.AddWithValue("@NombreCliente", txtNombreCliente.Text);
+                cmd3.Parameters.AddWithValue("@Fecha", DateTime.Parse(txtFecha.Text));
+                cmd3.Parameters.AddWithValue("@ProductoID", txtCodigoProducto.Text);
+                cmd3.Parameters.AddWithValue("@Detalle", txtDetalleProducto.Text);
+                cmd3.Parameters.AddWithValue("@Cantidad", cantidad);
+                cmd3.Parameters.AddWithValue("@PrecioCarton", precioCarton);
+                cmd3.Parameters.AddWithValue("@PrecioVenta", precioVenta);
+                cmd3.Parameters.AddWithValue("@PrecioUnitario", precioUnitario);
+                cmd3.Parameters.AddWithValue("@EstadoVenta", txtEstadoVenta.Text);
+                cmd3.Parameters.AddWithValue("@MontoPagado", montoPagado);
+                cmd3.Parameters.AddWithValue("@MontoTotal", montoTotal);
+                cmd3.Parameters.AddWithValue("@Ganancia", ganancia);
+
+                cmd3.ExecuteNonQuery();
+                dtgVentas.DataSource = llenar_grid();
+                txtCodigo.Clear();
+                txtCodigoCliente.Clear();
+                txtNombreCliente.Clear();
+                txtFecha.Clear();
+                txtCodigoProducto.Clear();
+                txtDetalleProducto.Clear();
+                txtCantidadProducto.Clear();
+                txtPrecioVentaProducto.Clear();
+                txtPrecioUnitarioProducto.Clear();
+                txtMontoPagado.Clear();
+                txtTipoCliente.Clear();
+                txtGanancia.Clear();
+                txtPrecioCartonProducto.Clear();
+
+            }
+            catch (Exception ex)
+            {
+              
+                MessageBox.Show("Ocurrió un error al guardar la venta: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+               
+                if (conexion != null && conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+
+
+
+
+
+
+
+            private void btnEliminar_Click(object sender, EventArgs e)
         {
             ConexionBDAle.Conectar();
             string eliminar = "DELETE FROM Ventas WHERE VentaID = @VentaID";
@@ -314,7 +336,7 @@ namespace Venta_de_Huevos.Formularios
 
                 if (result == DialogResult.OK)
                 {
-                    // Asignar directamente el texto al campo txtProveedorID
+                   
                     txtCodigoCliente.Text = modal.CodigoSeleccionado.ToString();
                     txtNombreCliente.Text = modal.NombreSeleccionado;
                     txtTipoCliente.Text = modal.TipoClienteSeleccionado;
@@ -330,7 +352,7 @@ namespace Venta_de_Huevos.Formularios
 
                 if (result == DialogResult.OK)
                 {
-                    // Asignar directamente el texto al campo txtProveedorID
+                   
                     txtCodigoProducto.Text = modal.CodigoSeleccionado.ToString();
                     txtDetalleProducto.Text = modal.DetalleSeleccionado;
                     txtPrecioCartonProducto.Text = modal.PrecioCartonProductoSeleccionado.ToString();
@@ -342,106 +364,21 @@ namespace Venta_de_Huevos.Formularios
         private void txtCantidadProducto_TextChanged(object sender, EventArgs e)
         {
 
-            /* // Inicializar la variable de texto para mostrar el resultado
-             lbMontoTotal.Text = "";
-
-             // Comprobar si los campos de cantidad o precio de venta están vacíos
-             if (string.IsNullOrWhiteSpace(txtCantidadProducto.Text))
-             {
-                 MessageBox.Show("Por favor, ingrese la cantidad.", "Entrada requerida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                 return;
-             }
-             else if (string.IsNullOrWhiteSpace(txtPrecioVentaProducto.Text))
-             {
-                 MessageBox.Show("Por favor, ingrese el precio de venta.", "Entrada requerida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                 return;
-             }
-
-             try
-             {
-                 // Convertir las entradas de texto a los tipos numéricos correspondientes
-                 decimal precioVenta = decimal.Parse(txtPrecioVentaProducto.Text);
-                 int cantidad = int.Parse(txtCantidadProducto.Text);
-
-                 // Calcular el monto total
-                 decimal MontoTotal = precioVenta * cantidad;
-
-                 // Mostrar el resultado en el label
-                 lbMontoTotal.Text = Convert.ToString(MontoTotal); // Usa formato moneda si es necesario
-
-
-             }
-             catch (FormatException)
-             {
-                 // Mostrar un mensaje de error si las entradas no son válidas numéricamente
-                 MessageBox.Show("Por favor, ingrese valores numéricos válidos.", "Error de formato", MessageBoxButtons.OK, MessageBoxIcon.Error);
-             }*/
-
-
-
-            // Inicializar el texto del label de monto total
-
-
-
-            //-------------------------------------------------------------------------------------------------------------------------------------
-
-            /*lbMontoTotal.Text = "";
-
-            // Variables para almacenar la conversión
-            decimal precioVenta;
-            int cantidad;
-
-            // Validar que los campos no estén vacíos y que contengan valores numéricos válidos
-            if (string.IsNullOrWhiteSpace(txtCantidadProducto.Text))
-            {
-                Console.WriteLine("Por favor, ingrese la cantidad.", "Entrada requerida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(txtPrecioVentaProducto.Text))
-            {
-                Console.WriteLine("Por favor, ingrese el precio de venta.", "Entrada requerida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            // Intentar convertir las entradas a los tipos numéricos correctos
-            if (!decimal.TryParse(txtPrecioVentaProducto.Text, out precioVenta))
-            {
-                MessageBox.Show("Por favor, ingrese un valor numérico válido para el precio de venta.", "Error de formato", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (!int.TryParse(txtCantidadProducto.Text, out cantidad))
-            {
-                MessageBox.Show("Por favor, ingrese un valor numérico válido para la cantidad.", "Error de formato", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            // Calcular el monto total
-            decimal montoTotal = precioVenta * cantidad;
-
-            // Mostrar el resultado en el label, con formato de moneda si es necesario
-            lbMontoTotal.Text = Convert.ToString(montoTotal); // C2 es para mostrar formato de moneda
-
-
-
-        }*/
-
-            // Limpiar el texto del label de monto total
+           
             lbMontoTotal.Text = "";
 
-            // Variables para almacenar los valores de entrada
+           
             decimal precioVenta;
             int cantidad;
 
-            // Verificar si el campo de cantidad está vacío
+          
             if (string.IsNullOrWhiteSpace(txtCantidadProducto.Text))
             {
                 lbMontoTotal.Text = "0";
                 return;
             }
 
-            // Verificar si el campo de precio de venta está vacío
+         
             if (string.IsNullOrWhiteSpace(txtPrecioVentaProducto.Text))
             {
                 lbMontoTotal.Text = "0";
@@ -465,8 +402,8 @@ namespace Venta_de_Huevos.Formularios
             // Calcular el monto total
             decimal montoTotal = precioVenta * cantidad;
 
-            // Mostrar el monto total en el label con formato de moneda (opcional)
-            lbMontoTotal.Text = Convert.ToString(montoTotal); // "C2" para formato de moneda con dos decimales
+           
+            lbMontoTotal.Text = Convert.ToString(montoTotal); 
         }
 
         private void txtPrecioCartonProducto_TextChanged(object sender, EventArgs e)
